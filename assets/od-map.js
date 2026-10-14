@@ -81,18 +81,18 @@
 
   // ---- map ----
   const map = L.map("od-leaflet", {
-    scrollWheelZoom: false, preferCanvas: true, zoomSnap: 0.5,
+    scrollWheelZoom: false, preferCanvas: true,
   });
-  map.fitBounds(L.latLngBounds(ZONES.map((z) => [z.lat, z.lon])), { padding: [16, 16] });
+  map.fitBounds(L.latLngBounds(ZONES.map((z) => [z.lat, z.lon])), { padding: [8, 8] });
 
-  const ATTR = 'Tiles &copy; <a href="https://www.esri.com">Esri</a> &mdash; Esri, HERE, Garmin, &copy; OpenStreetMap contributors';
-  let tiles;
+  // One light basemap for both themes; dark mode inverts it in CSS (.map-dark),
+  // which avoids the uneven tile shading of Esri's own dark canvas.
+  L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}", {
+    attribution: 'Tiles &copy; <a href="https://www.esri.com">Esri</a> &mdash; Esri, HERE, Garmin, &copy; OpenStreetMap contributors',
+    maxZoom: 16, className: "basemap",
+  }).addTo(map);
   function setTiles() {
-    if (tiles) map.removeLayer(tiles);
-    const style = isDark() ? "Dark_Gray_Base" : "Light_Gray_Base";
-    tiles = L.tileLayer(`https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_${style}/MapServer/tile/{z}/{y}/{x}`, {
-      attribution: ATTR, maxZoom: 16,
-    }).addTo(map);
+    map.getContainer().classList.toggle("map-dark", isDark());
   }
 
   const lineLayer = L.layerGroup().addTo(map);
