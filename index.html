@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nicolás Caro — Portfolio</title>
+  <meta name="description" content="GIS & transport planning specialist — portfolio and CV.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <nav class="wrap nav">
+      <a class="brand" href="#top" data-bind="name"></a>
+      <ul class="nav-links">
+        <li><a href="#about" data-i18n="nav.about"></a></li>
+        <li><a href="#experience" data-i18n="nav.experience"></a></li>
+        <li><a href="#projects" data-i18n="nav.projects"></a></li>
+        <li><a href="#skills" data-i18n="nav.skills"></a></li>
+        <li><a href="#education" data-i18n="nav.education"></a></li>
+        <li><a href="#contact" data-i18n="nav.contact"></a></li>
+      </ul>
+      <div class="nav-tools">
+        <button id="lang-toggle" class="pill" aria-label="Switch language"></button>
+        <button id="theme-toggle" class="pill" aria-label="Toggle dark mode">◐</button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero wrap">
+      <div class="hero-text">
+        <p class="eyebrow mono" data-bind="location"></p>
+        <h1 data-bind="name"></h1>
+        <p class="role" data-i18n="role"></p>
+        <p class="lead" data-i18n="tagline"></p>
+        <div class="cta">
+          <a class="btn primary" href="#contact" data-i18n="cta.contact"></a>
+          <a class="btn" id="cv-link" href="#" target="_blank" rel="noopener" data-i18n="cta.cv"></a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img id="photo" alt="" src="">
+      </div>
+    </section>
+
+    <section id="about" class="wrap section">
+      <h2 data-i18n="nav.about"></h2>
+      <div id="about-body" class="prose"></div>
+      <div id="stats" class="stats"></div>
+    </section>
+
+    <section id="experience" class="wrap section">
+      <h2 data-i18n="nav.experience"></h2>
+      <ol id="experience-list" class="timeline"></ol>
+    </section>
+
+    <section id="projects" class="wrap section">
+      <h2 data-i18n="nav.projects"></h2>
+      <div id="project-filters" class="filters"></div>
+      <div id="project-grid" class="grid"></div>
+    </section>
+
+    <section id="skills" class="wrap section">
+      <h2 data-i18n="nav.skills"></h2>
+      <div id="skills-grid" class="skills"></div>
+    </section>
+
+    <section id="education" class="wrap section">
+      <h2 data-i18n="nav.education"></h2>
+      <ul id="education-list" class="edu"></ul>
+      <h3 class="sub" data-i18n="coursesTitle"></h3>
+      <ul id="courses-list" class="courses"></ul>
+      <h3 class="sub" data-i18n="languagesTitle"></h3>
+      <ul id="languages-list" class="langs"></ul>
+    </section>
+
+    <section id="contact" class="wrap section contact">
+      <h2 data-i18n="nav.contact"></h2>
+      <p class="lead" data-i18n="contactText"></p>
+      <ul id="contact-list" class="contact-list"></ul>
+    </section>
+  </main>
+
+  <footer class="wrap footer mono">
+    <span>© <span id="year"></span> <span data-bind="name"></span></span>
+  </footer>
+
+  <script src="content.js"></script>
+  <script src="assets/main.js"></script>
+</body>
+</html>
