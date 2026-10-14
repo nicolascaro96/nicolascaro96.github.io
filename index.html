@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -18,6 +19,7 @@
         <li><a href="#about" data-i18n="nav.about"></a></li>
         <li><a href="#experience" data-i18n="nav.experience"></a></li>
         <li><a href="#projects" data-i18n="nav.projects"></a></li>
+        <li><a href="#od-map" data-i18n="nav.map"></a></li>
         <li><a href="#skills" data-i18n="nav.skills"></a></li>
         <li><a href="#education" data-i18n="nav.education"></a></li>
         <li><a href="#contact" data-i18n="nav.contact"></a></li>
@@ -63,6 +65,43 @@
       <div id="project-grid" class="grid"></div>
     </section>
 
+    <section id="od-map" class="wrap section">
+      <h2 data-i18n="map.title"></h2>
+      <p class="prose-p" data-i18n="map.intro"></p>
+      <div class="map-controls">
+        <label class="map-range">
+          <span data-i18n="map.topN"></span> <strong id="od-n-val" class="mono"></strong>
+          <input id="od-n" type="range" min="10" max="200" step="10" value="60">
+        </label>
+        <div class="seg" role="group">
+          <button id="od-dir-out" class="chip active" data-i18n="map.out"></button>
+          <button id="od-dir-in" class="chip" data-i18n="map.in"></button>
+        </div>
+        <button id="od-reset" class="chip" data-i18n="map.reset"></button>
+      </div>
+      <div class="map-wrap">
+        <div id="od-leaflet" class="map" aria-label="Origin–destination desire lines map"></div>
+        <div class="map-panel">
+          <p class="mono muted small" data-i18n="map.selection"></p>
+          <p id="od-sel" class="map-sel"></p>
+          <dl class="map-kpis">
+            <div><dt data-i18n="map.kpiShown"></dt><dd id="od-k-shown" class="mono"></dd></div>
+            <div><dt data-i18n="map.kpiShare"></dt><dd id="od-k-share" class="mono"></dd></div>
+          </dl>
+          <p class="mono muted small" data-i18n="map.topPairs"></p>
+          <ol id="od-top" class="map-top"></ol>
+          <div class="map-legend">
+            <svg width="120" height="34" aria-hidden="true">
+              <path d="M4 26 Q60 2 116 26" fill="none" stroke="currentColor" stroke-width="1.5" />
+              <path d="M4 30 Q60 10 116 30" fill="none" stroke="currentColor" stroke-width="6" opacity=".7"/>
+            </svg>
+            <span class="small muted" data-i18n="map.legend"></span>
+          </div>
+        </div>
+      </div>
+      <p class="small muted map-note" data-i18n="map.note"></p>
+    </section>
+
     <section id="skills" class="wrap section">
       <h2 data-i18n="nav.skills"></h2>
       <div id="skills-grid" class="skills"></div>
@@ -90,5 +129,7 @@
 
   <script src="content.js"></script>
   <script src="assets/main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="assets/od-map.js"></script>
 </body>
 </html>

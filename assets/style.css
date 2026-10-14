@@ -127,6 +127,32 @@ a.card:hover { transform: translateY(-3px); border-color: var(--accent); text-de
   padding: 2px 9px; font-size: .78rem; font-weight: 500;
 }
 
+/* OD map */
+.prose-p { max-width: 70ch; margin: -12px 0 20px; }
+.map-controls { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; margin-bottom: 14px; }
+.map-range { display: flex; align-items: center; gap: 10px; font-size: .9rem; color: var(--muted); }
+.map-range strong { color: var(--text); min-width: 2.5ch; }
+.map-range input { accent-color: var(--accent); width: 160px; }
+.seg { display: flex; gap: 6px; }
+.map-wrap {
+  display: grid; grid-template-columns: 1fr 280px; border: 1px solid var(--line);
+  border-radius: 14px; overflow: hidden; background: var(--surface); box-shadow: var(--shadow);
+}
+.map { height: 540px; background: var(--bg); }
+.map-panel { padding: 18px 20px; border-left: 1px solid var(--line); display: flex; flex-direction: column; gap: 6px; }
+.map-panel p { margin: 0; }
+.map-sel { font-weight: 600; font-size: 1.05rem; margin-bottom: 10px !important; }
+.map-kpis { margin: 0 0 14px; display: grid; gap: 10px; }
+.map-kpis dt { font-size: .8rem; color: var(--muted); }
+.map-kpis dd { margin: 0; font-size: 1.25rem; color: var(--accent); font-weight: 500; }
+.map-top { margin: 0 0 14px; padding-left: 18px; font-size: .85rem; }
+.map-top li { margin-bottom: 4px; }
+.map-top li > div { display: flex; justify-content: space-between; gap: 8px; }
+.map-legend { margin-top: auto; color: var(--accent); display: flex; flex-direction: column; gap: 4px; }
+.map-note { margin-top: 10px; }
+.leaflet-container { font: inherit; }
+.leaflet-tooltip { font-size: .8rem; }
+
 /* skills */
 .skills { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
 .skill-group { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; }
@@ -159,4 +185,11 @@ a.card:hover { transform: translateY(-3px); border-color: var(--accent); text-de
   .nav-tools { margin-left: auto; }
   .hero { grid-template-columns: 1fr; padding-block: 48px 40px; gap: 28px; }
   .hero-photo { order: -1; max-width: 160px; }
+  .map-wrap { grid-template-columns: 1fr; }
+  .map { height: 420px; }
+  .map-panel { border-left: none; border-top: 1px solid var(--line); }
 }
+
+/* hide hairline seams between scaled basemap tiles at fractional zoom */
+.leaflet-tile-container img.leaflet-tile { width: 256.5px !important; height: 256.5px !important; }
+

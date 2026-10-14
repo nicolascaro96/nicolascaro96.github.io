@@ -157,12 +157,14 @@
     const next = cur === "dark" ? "light" : "dark";
     document.documentElement.dataset.theme = next;
     store.set("theme", next);
+    document.dispatchEvent(new CustomEvent("themechange"));
   };
 
   $("#lang-toggle").onclick = () => {
     lang = lang === "en" ? "es" : "en";
     store.set("lang", lang);
     render();
+    document.dispatchEvent(new CustomEvent("langchange"));
   };
 
   render();
