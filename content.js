@@ -76,6 +76,21 @@ const SITE = {
     },
   ],
 
+  // interactive examples built with open data (each one is a standalone page under demos/)
+  demos: [
+    {
+      title: { en: "Trips between districts in the València metropolitan area", es: "Viajes entre distritos del área metropolitana de València" },
+      kicker: { en: "Open data · MITMA Big Data mobility study + GTFS", es: "Datos abiertos · Estudio de movilidad Big Data MITMA + GTFS" },
+      description: {
+        en: "Desire-line dashboard for an average weekday and weekend day (May 2025) across 105 MITMA districts, built from mobile-phone data downloaded with pySpainMobility. Filter by time of day and trip purpose, click a district to see its flows, and overlay the metro, tram, commuter-rail and intercity-bus networks from their GTFS feeds.",
+        es: "Dashboard de líneas de deseo de un día promedio laboral y no laboral (mayo 2025) en 105 distritos MITMA, a partir de datos de telefonía móvil descargados con pySpainMobility. Permite filtrar por franja horaria y motivo, hacer clic en un distrito para ver sus flujos y superponer las redes de metro, tranvía, Cercanías y autobús interurbano a partir de sus GTFS.",
+      },
+      tags: ["OD matrices", "Mobile data", "GTFS", "Python", "Leaflet"],
+      image: "assets/img/demo-valencia-od.jpg",
+      link: "demos/valencia-od/",
+    },
+  ],
+
   // tags drive the filter buttons above the project grid
   projects: [
     {
@@ -214,7 +229,7 @@ const UI = {
     about: { en: "About", es: "Sobre mí" },
     experience: { en: "Experience", es: "Experiencia" },
     projects: { en: "Projects", es: "Proyectos" },
-    map: { en: "OD Map", es: "Mapa OD" },
+    demos: { en: "Live demos", es: "Ejemplos" },
     skills: { en: "Skills", es: "Habilidades" },
     education: { en: "Education", es: "Formación" },
     contact: { en: "Contact", es: "Contacto" },
@@ -230,28 +245,12 @@ const UI = {
     es: "Abierto a nuevos proyectos y colaboraciones. La mejor forma de contactarme es por correo o LinkedIn.",
   },
   all: { en: "All", es: "Todos" },
-  map: {
-    title: { en: "Interactive demo: OD desire lines", es: "Demo interactiva: líneas de deseo OD" },
+  demos: {
+    title: { en: "Interactive examples", es: "Ejemplos interactivos" },
     intro: {
-      en: "Desire lines are how I usually show an origin–destination matrix: each curve joins two zones and its width is proportional to the trips between them. Click a zone to see the flows leaving it or arriving at it.",
-      es: "Las líneas de deseo son mi forma habitual de mostrar una matriz origen–destino: cada curva une dos zonas y su grosor es proporcional a los viajes entre ellas. Haz clic en una zona para ver los flujos que salen o llegan a ella.",
+      en: "Working examples of the kind of analysis I do in projects, rebuilt with open data so they can be shared.",
+      es: "Ejemplos funcionales del tipo de análisis que hago en los proyectos, reconstruidos con datos abiertos para poder compartirlos.",
     },
-    topN: { en: "Pairs shown:", es: "Pares mostrados:" },
-    out: { en: "Outgoing", es: "Salientes" },
-    in: { en: "Incoming", es: "Entrantes" },
-    reset: { en: "Show all", es: "Ver todo" },
-    selection: { en: "SELECTION", es: "SELECCIÓN" },
-    allZones: { en: "All zones", es: "Todas las zonas" },
-    from: { en: "Trips from", es: "Viajes desde" },
-    to: { en: "Trips to", es: "Viajes hacia" },
-    kpiShown: { en: "Trips on lines shown", es: "Viajes en las líneas" },
-    kpiShare: { en: "Share of inter-zonal trips", es: "% de viajes interzonales" },
-    topPairs: { en: "TOP PAIRS", es: "PRINCIPALES PARES" },
-    trips: { en: "trips", es: "viajes" },
-    legend: { en: "Line width ∝ trips. Curves bend clockwise, so A→B and B→A sit on opposite sides.", es: "Grosor ∝ viajes. Las curvas giran en sentido horario: A→B y B→A quedan en lados opuestos." },
-    note: {
-      en: "Illustrative data: a synthetic morning-peak matrix generated with a gravity model on approximate centroids of corregimientos in the Panama metropolitan area. It is not project data.",
-      es: "Datos ilustrativos: matriz sintética de hora punta de mañana generada con un modelo gravitacional sobre centroides aproximados de corregimientos del Área Metropolitana de Panamá. No son datos de proyecto.",
-    },
+    open: { en: "Open dashboard ↗", es: "Abrir dashboard ↗" },
   },
 };

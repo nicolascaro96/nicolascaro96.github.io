@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Movilidad València — Líneas de deseo MITMA</title>
+  <meta name="description" content="Dashboard de viajes origen–destino entre distritos MITMA del área metropolitana de València (día laboral y no laboral, mayo 2025).">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <p class="eyebrow mono" data-t="eyebrow"></p>
+      <h1 data-t="title"></h1>
+      <p class="sub" data-t="subtitle"></p>
+    </div>
+    <div class="tools">
+      <a class="pill" href="../../#demos">← Portfolio</a>
+      <button id="lang" class="pill"></button>
+      <button id="theme" class="pill" aria-label="Tema">◐</button>
+    </div>
+  </header>
+
+  <section class="filters" aria-label="Filtros">
+    <div class="fgroup">
+      <span class="flabel" data-t="fDay"></span>
+      <div class="seg" id="f-tipo">
+        <button data-v="lab" class="on" data-t="lab"></button>
+        <button data-v="nolab" data-t="nolab"></button>
+      </div>
+    </div>
+    <div class="fgroup">
+      <span class="flabel" data-t="fHours"></span>
+      <div class="hours">
+        <select id="h-from" aria-label="Desde"></select>
+        <span class="muted">–</span>
+        <select id="h-to" aria-label="Hasta"></select>
+        <div class="presets" id="h-presets">
+          <button data-r="0,23" data-t="allDay"></button>
+          <button data-r="7,9" data-t="amPeak"></button>
+          <button data-r="17,19" data-t="pmPeak"></button>
+        </div>
+      </div>
+    </div>
+    <div class="fgroup">
+      <span class="flabel" data-t="fPurpose"></span>
+      <div class="mot" id="f-mot"></div>
+    </div>
+    <div class="fgroup">
+      <span class="flabel"><span data-t="fLines"></span> <strong id="n-val" class="mono"></strong></span>
+      <input id="f-n" type="range" min="25" max="500" step="25" value="150">
+    </div>
+  </section>
+
+  <main class="layout">
+    <div class="mapcol">
+      <div class="mapbar">
+        <div class="seg small" id="f-map">
+          <button data-v="gen" class="on" data-t="mapGen"></button>
+          <button data-v="atr" data-t="mapAtr"></button>
+        </div>
+        <span id="sel-chip" class="selchip" hidden>
+          <span id="sel-name"></span>
+          <button id="sel-clear" aria-label="Quitar selección">×</button>
+        </span>
+        <span class="hint muted small" id="hint" data-t="hint"></span>
+      </div>
+      <div id="map" class="map"></div>
+      <div class="legends">
+        <div>
+          <p class="lgtitle" id="ch-title"></p>
+          <div id="ch-legend" class="chleg"></div>
+        </div>
+        <div>
+          <p class="lgtitle" data-t="lineLegend"></p>
+          <svg id="ln-legend" width="230" height="40" aria-hidden="true"></svg>
+        </div>
+      </div>
+    </div>
+
+    <aside class="panel">
+      <div class="kpis">
+        <div class="kpi"><span id="k1-l"></span><strong id="k1" class="mono"></strong></div>
+        <div class="kpi"><span id="k2-l"></span><strong id="k2" class="mono"></strong></div>
+        <div class="kpi"><span data-t="kShown"></span><strong id="k3" class="mono"></strong></div>
+      </div>
+
+      <div class="card">
+        <div class="cardhead">
+          <h2 id="prof-title"></h2>
+          <div class="legend" id="prof-legend"></div>
+        </div>
+        <div class="chartbox"><svg id="prof" role="img"></svg><div id="tip" class="tip" hidden></div></div>
+      </div>
+
+      <div class="card">
+        <h2 data-t="topTitle"></h2>
+        <table class="toptable">
+          <thead><tr><th>#</th><th data-t="thPair"></th><th class="num" data-t="thTrips"></th></tr></thead>
+          <tbody id="top"></tbody>
+        </table>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="foot small muted">
+    <p data-t="source"></p>
+    <p data-t="method"></p>
+    <p data-t="ptSource"></p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="gtfs.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

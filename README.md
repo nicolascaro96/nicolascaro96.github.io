@@ -10,6 +10,7 @@ assets/style.css    styles (light/dark)
 assets/main.js      rendering + language/theme toggles
 assets/img/         profile.jpg + project images
 assets/cv/          CV PDF for the "Download CV" button
+demos/valencia-od/  standalone OD dashboard (open data: MITMA + GTFS), linked from "Interactive examples"
 ```
 
 ## Preview locally

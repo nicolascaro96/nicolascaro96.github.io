@@ -97,6 +97,27 @@
     );
   }
 
+  function renderDemos() {
+    $("#demo-list").replaceChildren(
+      ...(SITE.demos || []).map((d) => {
+        const card = el("article", "demo");
+        const shot = el("a", "demo-shot");
+        shot.href = d.link; shot.setAttribute("aria-label", t(d.title));
+        const im = el("img"); im.src = d.image; im.alt = ""; im.loading = "lazy";
+        shot.append(im);
+        const body = el("div", "demo-body");
+        body.append(el("p", "mono muted small", t(d.kicker)), el("h3", null, t(d.title)), el("p", null, t(d.description)));
+        const tg = el("div", "tags");
+        d.tags.forEach((x) => tg.append(el("span", "tag", x)));
+        const btn = el("a", "btn primary", t(UI.demos.open));
+        btn.href = d.link;
+        body.append(tg, btn);
+        card.append(shot, body);
+        return card;
+      })
+    );
+  }
+
   function renderSkills() {
     $("#skills-grid").replaceChildren(
       ...SITE.skills.map((g) => {
@@ -145,7 +166,7 @@
 
   function render() {
     renderStatic(); renderAbout(); renderExperience();
-    renderProjects(); renderSkills(); renderEducation(); renderContact();
+    renderProjects(); renderDemos(); renderSkills(); renderEducation(); renderContact();
   }
 
   // theme
