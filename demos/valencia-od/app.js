@@ -173,7 +173,7 @@
     { k: "rail", grp: "rail", w: 3.5 },
     { k: "bus", grp: "bus", color: "#b8327a", colorDark: "#e070ad" },
   ];
-  const ptOn = new Set();
+  const ptOn = new Set(["metro", "tram", "rail", "bus"]);   // todas las capas activas al abrir
   map.createPane("pt"); map.getPane("pt").style.zIndex = 450;
   map.createPane("ptStops"); map.getPane("ptStops").style.zIndex = 460;
   const ptRenderer = L.canvas({ pane: "pt", padding: 0.2 });
@@ -482,6 +482,7 @@
   if (["gen", "atr"].includes(q.get("mapa"))) S.map = q.get("mapa");
   const qi = D.zones.findIndex((z) => z.id === q.get("sel"));
   if (qi >= 0) S.sel = qi;
+  if (q.has("tp")) ptOn.clear();   // ?tp=metro,rail limita las capas; ?tp= las apaga todas
   (q.get("tp") || "").split(",").forEach((k) => { if (PT_MODES.some((m) => m.k === k)) ptOn.add(k); });
   const qh = (q.get("h") || "").match(/^(\d{1,2})-(\d{1,2})$/);
   if (qh) { S.from = Math.min(23, +qh[1]); S.to = Math.max(S.from, Math.min(23, +qh[2])); }
