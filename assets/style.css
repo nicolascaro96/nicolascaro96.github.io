@@ -82,14 +82,6 @@ h3 { font-size: 1.05rem; margin: 0; }
 .sub { margin: 36px 0 12px; }
 .prose p { max-width: 70ch; margin: 0 0 14px; }
 
-.stats { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 24px; }
-.stat {
-  flex: 1 1 160px; background: var(--surface); border: 1px solid var(--line);
-  border-radius: 12px; padding: 16px 20px; box-shadow: var(--shadow);
-}
-.stat strong { display: block; font-size: 1.8rem; color: var(--accent); line-height: 1.2; }
-.stat span { color: var(--muted); font-size: .9rem; }
-
 /* timeline */
 .timeline { list-style: none; margin: 0; padding: 0 0 0 20px; border-left: 2px solid var(--line); }
 .tl-item { position: relative; padding: 0 0 32px 20px; }

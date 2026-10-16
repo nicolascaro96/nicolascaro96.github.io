@@ -38,13 +38,6 @@
   function renderAbout() {
     const body = $("#about-body");
     body.replaceChildren(...t(SITE.about).map((p) => el("p", null, p)));
-    $("#stats").replaceChildren(
-      ...SITE.stats.map((s) => {
-        const d = el("div", "stat");
-        d.append(el("strong", null, s.value), el("span", null, t(s.label)));
-        return d;
-      })
-    );
   }
 
   function renderExperience() {

@@ -29,12 +29,6 @@ const SITE = {
     ],
   },
 
-  stats: [
-    { value: "5+", label: { en: "years of experience", es: "años de experiencia" } },
-    { value: "5", label: { en: "countries with project work", es: "países con proyectos" } },
-    { value: "3", label: { en: "languages spoken", es: "idiomas" } },
-  ],
-
   experience: [
     {
       company: "SENER",
